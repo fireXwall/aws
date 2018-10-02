@@ -26,7 +26,7 @@ Checkpoint: You can use the AWS CLI to interrogate information about your AWS ac
 
 Checkpoint: You can view a simple HTML page served from your EC2 instance.
 
-**Auto Scaling
+**Auto Scaling**
 
 - Create an AMI from that VM and put it in an autoscaling group so one VM always exists.
 
@@ -62,7 +62,7 @@ Checkpoint: Your HA/AutoScaled website now serves all data over HTTPS. The same 
 
 - Move most of the UI piece of your EB website into your Static S3 Website and use Javascript/whatever to retrieve the data from your api.yourdomain.com URL on page load. Send data to the EB URL to have it update the DynamoDB. Get rid of static.yourdomain.com and change your S3 bucket to serve from www.yourdomain.com.
 
-- Checkpoint: Your EB deployment is now only a structured way to retrieve data from your database. All of your UI and application logic is served from the S3 Bucket (via CloudFront). You can support many more users since you're no longer using expensive servers to serve your website's static data.
+Checkpoint: Your EB deployment is now only a structured way to retrieve data from your database. All of your UI and application logic is served from the S3 Bucket (via CloudFront). You can support many more users since you're no longer using expensive servers to serve your website's static data.
 
 **Serverless**
 
