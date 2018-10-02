@@ -82,7 +82,7 @@ Once you have the "Get Fortune" API Gateway + Lambda working, do the "New Fortun
 
 Checkpoint: Your API Gateway and S3 Bucket are fronted by CloudFront with SSL. You have no EC2 instances deployed. All work is done by AWS services and billed as consumed.
 
-**Cost Analysis
+**Cost Analysis**
 
 Explore the AWS pricing models and see how pricing is structured for the services you've used.
 
