@@ -6,7 +6,7 @@ This guide takes you through a maturity process from the most basic webpage to a
 
 Need an idea? Here: Fortune-of-the-Day - Display a random fortune each page load, have a box at the bottom and a submit button to add a new fortune to the random fortune list.
 
-Account Basics
+**Account Basics**
 
 Create an IAM user for your personal use.
 
@@ -18,7 +18,7 @@ Configure the AWS CLI for your user using API credentials.
 
 Checkpoint: You can use the AWS CLI to interrogate information about your AWS account.
 
-Web Hosting Basics
+**Web Hosting Basics**
 
 Deploy a EC2 VM and host a simple static "Fortune-of-the-Day Coming Soon" web page.
 
@@ -26,7 +26,7 @@ Take a snapshot of your VM, delete the VM, and deploy a new one from the snapsho
 
 Checkpoint: You can view a simple HTML page served from your EC2 instance.
 
-Auto Scaling
+**Auto Scaling
 
 Create an AMI from that VM and put it in an autoscaling group so one VM always exists.
 
@@ -34,7 +34,7 @@ Put a Elastic Load Balancer infront of that VM and load balance between two Avai
 
 Checkpoint: You can view a simple HTML page served from both of your EC2 instances. You can turn one off and your website is still accessible.
 
-External Data
+**External Data
 
 Create a DynamoDB table and experiment with loading and retrieving data manually, then do the same via a script on your local machine.
 
@@ -42,7 +42,7 @@ Refactor your static page into your Fortune-of-the-Day website (Node, PHP, Pytho
 
 Checkpoint: Your HA/AutoScaled website can now load/save data to a database between users and sessions
 
-Web Hosting Platform-as-a-Service
+**Web Hosting Platform-as-a-Service
 
 Retire that simple website and re-deploy it on Elastic Beanstalk.
 
@@ -56,7 +56,7 @@ Enable SSL for your Elastic Beanstalk Website.
 
 Checkpoint: Your HA/AutoScaled website now serves all data over HTTPS. The same as before, except you don't have to manage the servers, web server software, website deployment, or the load balancer.
 
-Microservices
+**Microservices
 
 Refactor your EB website into ONLY providing an API. It should only have a POST/GET to update/retrieve that specific data from DynamoDB. Bonus: Make it a simple REST API. Get rid of www.yourdomain.com and serve this EB as api.yourdomain.com
 
@@ -64,7 +64,7 @@ Move most of the UI piece of your EB website into your Static S3 Website and use
 
 Checkpoint: Your EB deployment is now only a structured way to retrieve data from your database. All of your UI and application logic is served from the S3 Bucket (via CloudFront). You can support many more users since you're no longer using expensive servers to serve your website's static data.
 
-Serverless
+**Serverless
 
 Write a AWS Lambda function to email you a list of all of the Fortunes in the DynamoDB table every night. Implement Least Privilege security for the Lambda Role. (Hint: Lambda using Python 3, Boto3, Amazon SES, scheduled with CloudWatch)
 
@@ -82,7 +82,7 @@ Once you have the "Get Fortune" API Gateway + Lambda working, do the "New Fortun
 
 Checkpoint: Your API Gateway and S3 Bucket are fronted by CloudFront with SSL. You have no EC2 instances deployed. All work is done by AWS services and billed as consumed.
 
-Cost Analysis
+**Cost Analysis
 
 Explore the AWS pricing models and see how pricing is structured for the services you've used.
 
@@ -92,7 +92,7 @@ Roughly how much would this have costed for a month?
 
 How would I scale this architecture and how would my costs change?
 
-Architectures
+**Architectures
 
 Basic Web Hosting: HA EC2 Instances Serving Static Web Page behind ELB
 
@@ -100,7 +100,7 @@ Microservices: Elastic Beanstalk SSL Website for only API + S3 Static Website fo
 
 Serverless: Serverless Website using API Gateway + Lambda Functions + DynamoDB + Route53 + CloudFront SSL + S3 Static Website for all static content
 
-#Automation
+**Automation
 
 !!! This is REALLY important !!!
 
@@ -110,13 +110,13 @@ Automate the deployment of the architectures above. Use whatever tool you want. 
 
 I suggest when you get each app-related section of the done by hand you go back and automate the provisioning of the infrastructure. For example, automate the provisioning of your EC2 instance. Automate the creation of your S3 Bucket with Static Website Hosting enabled, etc. This is not easy, but it is very rewarding when you see it work.
 
-Continuous Delivery
+**Continuous Delivery
 
 As you become more familiar with Automating deployments you should explore and implement a Continuous Delivery pipeline.
 
 Develop a CI/CD pipeline to automatically update a dev deployment of your infrastructure when new code is published, and then build a workflow to update the production version if approved. Travis CI is a decent SaaS tool, Jenkins has a huge following too, if you want to stick with AWS-specific technologies you'll be looking at CodePipeline.
 
-Miscellaneous / Bonus
+**Miscellaneous / Bonus
 
 These didn't fit in nicely anywhere but are important AWS topics you should also explore:
 
@@ -125,3 +125,5 @@ IAM: You should really learn how to create complex IAM Policies. You would have 
 Networking: Create a new VPC from scratch with multiple subnets (you'll learn a LOT of networking concepts), once that is working create another VPC and peer them together. Get a VM in each subnet to talk to eachother using only their private IP addresses.
 
 KMS: Go back and redo the early EC2 instance goals but enable encryption on the disk volumes. Learn how to encrypt an AMI.
+
+Source:https://www.reddit.com/r/sysadmin/comments/8inzn5/so_you_want_to_learn_aws_aka_how_do_i_learn_to_be/
